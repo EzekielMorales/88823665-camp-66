@@ -1,16 +1,90 @@
 <!DOCTYPE html>  
 <html>
     <head>
-        <title>Page Title</title>
+        <h1>Workshop #HTML - FORM</h1>
         <meta charset="UTF-8" />
-        
     </head>
+
     <body>
+        <form>
+
+            <table >
+                <tr>
+                    <td>ชื่อ</td>
+                    <td> <input type="text" id="fname" name="fname"><br></td>
+                </tr>
+
+                <tr>
+                    <td>นามสกุล</td>
+                    <td> <input type="text" id="fname" name="lname"><br></td>
+                </tr>
+                
+                <tr>
+                    <td>วัน/เดือน/ปีเกิด</td>
+                    <td> <input type="date" id="born" name="born"><br></td>
+                </tr>
+                
+                <tr>
+                    <td>อายุ</td>
+                    <td> <input type="text" id="age" name="age"><br></td>
+                </tr>
+                
+                <tr>
+                    <td>เพศ</td>
+                     <td><input type="radio" id="sex" name="sex" value="ชาย">ชาย
+                     <input type="radio" id="sex" name="sex" value="หญิง">หญิง<br></td>
+                </tr>
+                
+                <tr>
+                    <td>รูป</td>
+                    <td> <input type="file" id="myfile" name="myfile"><br></td>
+                </tr>
+                
+                <tr>
+                    <td>ที่อยู่</td>
+                    <td> <textarea rows="4" cols="40"></textarea><br></td>
+                </tr>
+
+                <tr>
+                    <td>สีที่ชอบ</td>
+                    <td> 
+                    <select name="color">
+                        <option value="สีแดง">สีแดง</option>
+                        <option value="สีเหลือง">สีเหลือง</option>
+                        <option value="สีเขียว">สีเขียว</option>
+                        <option value="สีฟ้า">สีฟ้า</option>
+                        <option value="สีอื่นๆ">สีอื่นๆ</option>
+                   </select> 
+                   <br></td>
+                </tr>
+
+                <tr>
+                    <td>แนวเพลงที่ชอบ</td>
+                    <td> <input type="radio" id="song" name="song" value="เพื่อชีวิต">เพื่อชีวิต
+                    <input type="radio" id="song" name="song" value="ลูกทุ่ง">ลูกทุ่ง
+                    <input type="radio" id="song" name="song" value="อื่นๆ">อื่นๆ<br></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="accept" name="accept" value="ยินยอมให้เก็บข้อมูล">
+                        <label for="accept"> ยินยอมให้เก็บข้อมูล </label><br>
+                    <br></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button type="reset">Reset</button>
+                    
+                    </td>
+                    <td>
+                        <button type="submit">Submit</button>
+                    </td>
+                </tr>
+            
+            
+            </table>
         
-        <h1>This is a Heading</h1>
-        <h1>God bless you</h1>
-        <p>This is a paragraph.</p>
-        ภาษาไทย
-        🦖👹🤠😘
+        </form>
     </body>
 </html>
