@@ -1,90 +1,82 @@
 <!DOCTYPE html>  
 <html>
     <head>
-        <h1>Workshop #HTML - FORM</h1>
+    
         <meta charset="UTF-8" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="mystyle.css" />
+        <!-- http://localhost/88823665-camp-66/mystyle.css -->
+        <!-- http://localhost/mystyle.css -->
+    
     </head>
 
     <body>
+        <h1>Workshop #HTML - FORM</h1>
+
         <form>
-
-            <table >
+            <table>
                 <tr>
-                    <td>ชื่อ</td>
-                    <td> <input type="text" id="fname" name="fname"><br></td>
+                    <td>ชื่อ</td> 
+                    <td><input type="text" name="fname"><br></td>
                 </tr>
-
                 <tr>
                     <td>นามสกุล</td>
-                    <td> <input type="text" id="fname" name="lname"><br></td>
+                    <td><input type="text" name="lname"><br></td>
                 </tr>
-                
                 <tr>
                     <td>วัน/เดือน/ปีเกิด</td>
-                    <td> <input type="date" id="born" name="born"><br></td>
+                    <td><input type="date" name="birthday"><br></td>
                 </tr>
-                
                 <tr>
                     <td>อายุ</td>
-                    <td> <input type="text" id="age" name="age"><br></td>
+                    <td><input type="text" name="age"><br></td>
                 </tr>
-                
                 <tr>
                     <td>เพศ</td>
-                     <td><input type="radio" id="sex" name="sex" value="ชาย">ชาย
-                     <input type="radio" id="sex" name="sex" value="หญิง">หญิง<br></td>
+                    <td><input type="radio" name="sex" value="ชาย">ชาย
+                        <input type="radio" name="sex" value="หญิง">หญิง<br></td>
                 </tr>
-                
                 <tr>
                     <td>รูป</td>
-                    <td> <input type="file" id="myfile" name="myfile"><br></td>
+                    <td><input type="file" name="myfile"><br></td>
                 </tr>
-                
                 <tr>
                     <td>ที่อยู่</td>
-                    <td> <textarea rows="4" cols="40"></textarea><br></td>
+                    <td><textarea rows="4" cols="40"></textarea><br></td>
                 </tr>
-
                 <tr>
                     <td>สีที่ชอบ</td>
-                    <td> 
-                    <select name="color">
-                        <option value="สีแดง">สีแดง</option>
-                        <option value="สีเหลือง">สีเหลือง</option>
-                        <option value="สีเขียว">สีเขียว</option>
-                        <option value="สีฟ้า">สีฟ้า</option>
-                        <option value="สีอื่นๆ">สีอื่นๆ</option>
-                   </select> 
-                   <br></td>
+                    <td><select name="color">
+                            <option value="สีแดง">สีแดง</option>
+                            <option value="สีเหลือง">สีเหลือง</option>
+                            <option value="สีชมพู">สีชมพู</option>
+                            <option value="สีเขียว">สีเขียว</option>
+                            <option value="สีส้ม">สีส้ม</option>
+                            <option value="สีฟ้า">สีฟ้า</option>
+                            <option value="สีม่วง">สีม่วง</option>
+                            <option value="สีดำ">สีดำ</option>
+                            <option value="สีขาว">สีขาว</option>
+                            <option value="สีอื่นๆ">สีอื่นๆ</option>
+                        </select><br></td>
                 </tr>
-
                 <tr>
                     <td>แนวเพลงที่ชอบ</td>
-                    <td> <input type="radio" id="song" name="song" value="เพื่อชีวิต">เพื่อชีวิต
-                    <input type="radio" id="song" name="song" value="ลูกทุ่ง">ลูกทุ่ง
-                    <input type="radio" id="song" name="song" value="อื่นๆ">อื่นๆ<br></td>
+                    <td><input type="radio" name="song" value="เพื่อชีวิต">เพื่อชีวิต
+                        <input type="radio" name="song" value="ลูกทุ่ง">ลูกทุ่ง
+                        <input type="radio" name="song" value="อื่นๆ">อื่นๆ<br></td>
                 </tr>
-
                 <tr>
-                    <td>
-                        <input type="checkbox" id="accept" name="accept" value="ยินยอมให้เก็บข้อมูล">
-                        <label for="accept"> ยินยอมให้เก็บข้อมูล </label><br>
-                    <br></td>
+                    <td><input type="checkbox" name="accept" value="ยินยอมให้เก็บข้อมูล">ยินยอมให้เก็บข้อมูล<br></td>
                 </tr>
-
                 <tr>
-                    <td>
-                        <button type="reset">Reset</button>
-                    
-                    </td>
-                    <td>
-                        <button type="submit">Submit</button>
-                    </td>
+                    <td><button type="reset">Reset</button></td>
+                    <td><button type="submit">Submit</button></td>
                 </tr>
-            
-            
             </table>
-        
         </form>
     </body>
 </html>

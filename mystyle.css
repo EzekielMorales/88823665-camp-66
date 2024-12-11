@@ -1,0 +1,82 @@
+/* mystyle.css */
+
+/* h1 {
+    color: rgb(158, 240, 122) !important;
+    font-size: 24pt;
+    margin: 25px;
+    padding: 25px 50px 75px 100px;;
+    border: 5px solid greenyellow;
+    border-radius: 50%;
+}
+h1:haver{
+    background-color: aqua;
+}*/
+h1 {
+    color: #333; /* สีตัวอักษร */
+    font-size: 24pt; /* ขนาดตัวอักษร */
+    margin: 10px auto; /* ระยะห่างรอบๆ และจัดกึ่งกลาง ของ h1*/
+    padding: 15px; /* ระยะห่างภายในกรอบ */
+    border: 5px solid #5a52f4; /* สีกรอบ */
+    border-radius: 5px; /* มุมของกรอบข้อความ */
+    background-color: #9ee2bf; /* พื้นหลัง */
+    text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
+    transition: all 0.3s ease  ;
+}
+h1:hover{
+    background-color: rgb(46, 18, 224);
+    color: #44f7e8;
+    border-color: #7762ed;
+}
+
+
+/*  1.font จาก google fonts */
+body {
+    background-image: radial-gradient(circle, #9692d7, #f55477); /* การไล่สีจากซ้ายไปขวา */
+    font-family: 'Charm', sans-serif;
+}
+
+/* 2. มีรูปแบบ input ที่มี กรอบสีเมื่อมีการ active */
+input[type="text"]:active, input[type="date"]:active, input[type="file"]:active, textarea:active, select:active{
+    border-color: #e98514;
+    background-color: #f5cf65;
+
+    /*outline: 2px dashed #3b18ba; /* กรอบเส้นประสี */
+    /*outline-offset: 4px; /* ระยะห่างระหว่าง outline และ border */
+    /*outline: none;*/
+}
+
+/* 3. เวลา hover ใน form มีการเปลี่ยนสีพื้นหลัง */
+form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #cdfdff;
+    transition: all 0.3s ease  ;
+}
+form:hover {
+    background-color: #adbff0; 
+    
+}
+
+/* 4. อื่นๆ ตามความสวยงาม */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;  /*ระยะห่างภายในของปุ่ม: 10px สำหรับบน-ล่าง และ 20px สำหรับซ้าย-ขว*/
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือเมื่อเมาส์ชี้ที่ปุ่ม */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f85353;
+}
+input[type="radio"], input[type="checkbox"] {
+    width: 20px; 
+    height: 20px;
+    cursor: pointer; 
+}
+
+
