@@ -1,0 +1,138 @@
+<!DOCTYPE html>  
+<html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap" rel="stylesheet">
+        
+        <!-- <link rel="stylesheet" href="mystyle.css" /> -->  <!--ปิด mystyle.css เอาไว้-->
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container mt-5">
+        <h1>Workshop #HTML - FORM</h1>
+
+        <form>
+            <!-- ชื่อ -->
+            <div class="mb-3 row">
+                <label for="firstName" class="col-sm-2 col-form-label">ชื่อ</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="firstName">
+                </div>
+            </div>
+
+            <!-- สกุล -->
+            <div class="mb-3 row">
+                <label for="lastName" class="col-sm-2 col-form-label">สกุล</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="lastName">
+                </div>
+            </div>
+
+            <!-- วัน/เดือน/ปีเกิด -->
+            <div class="mb-3 row">
+                <label for="dob" class="col-sm-2 col-form-label">วัน/เดือน/ปีเกิด</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="dob">
+                </div>
+            </div>
+
+            <!-- อายุ -->
+            <div class="mb-3 row">
+                <label for="age" class="col-sm-2 col-form-label">อายุ</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="age">
+                </div>
+            </div>
+
+            <!-- เพศ -->
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">เพศ</label>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="genderMale">
+                        <label class="form-check-label" for="genderMale">
+                          ชาย
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" checked>
+                        <label class="form-check-label" for="genderFemale">
+                          หญิง
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- รูป -->
+            <div class="mb-3 row">
+                <label for="profileImage" class="col-sm-2 col-form-label">รูป</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="file" id="profileImage">
+                </div>
+            </div>
+
+            <!-- ที่อยู่ -->
+            <div class="mb-3 row">
+                <label for="address" class="col-sm-2 col-form-label">ที่อยู่</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="address" rows="3"></textarea>
+                </div>
+            </div>
+
+            <!-- สีที่ชอบ -->
+            <div class="mb-3 row">
+                <label for="favoriteColor" class="col-sm-2 col-form-label">สีที่ชอบ</label>
+                <div class="col-sm-10">
+                    <select class="form-select" id="favoriteColor">
+                        <option selected>เลือกสีที่ชอบ</option>
+                        <option value="red">สีแดง</option>
+                        <option value="yellow">สีเหลือง</option>
+                        <option value="green">สีเขียว</option>
+                    </select>               
+                </div>
+            </div>
+
+            <!-- แนวเพลงที่ชอบ -->
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">แนวเพลงที่ชอบ</label>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="music" id="music1" value="เพื่อชีวิต" checked>
+                        <label class="form-check-label" for="music1">เพื่อชีวิต</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="music" id="music2" value="ลูกทุ่ง">
+                        <label class="form-check-label" for="music2">ลูกทุ่ง</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="music" id="music3" value="อื่นๆ">
+                        <label class="form-check-label" for="music3">อื่นๆ</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ยินยอมให้เก็บข้อมูล -->
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="agree" id="consent">
+                <label class="form-check-label" for="consent">
+                  ยินยอมให้เก็บข้อมูล
+                </label>
+            </div>
+
+            <!-- ปุ่ม Reset และ Submit -->
+            <div>
+                <button type="reset" class="btn btn-warning" style="margin-right: 100px;">Reset</button> 
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+    </body>
+</html>
