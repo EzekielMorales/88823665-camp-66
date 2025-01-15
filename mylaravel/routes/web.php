@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LaravelFormController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,3 +14,11 @@ Route::get('/hello', function () {
 Route::get('/Christmas', function () {
     return "<h1>Merry Christmas , Santa claus HOHO !!!!🦌🎅🎄❄️☃️🎁</h1>";
 });
+
+Route::get('/LaravelForm', function () {
+    return view('Function');
+});
+
+Route::get('/LaravelForm', [LaravelFormController::class, 'showForm']);
+
+Route::post('/mycontroller/{id}', [LaravelFormController::class, 'myFunction']);
