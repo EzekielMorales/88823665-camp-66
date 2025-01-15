@@ -15,10 +15,9 @@ Route::get('/Christmas', function () {
     return "<h1>Merry Christmas , Santa claus HOHO !!!!🦌🎅🎄❄️☃️🎁</h1>";
 });
 
-Route::get('/LaravelForm', function () {
-    return view('Function');
-});
 
-Route::get('/LaravelForm', [LaravelFormController::class, 'showForm']);
+Route::get('/LaravelForm',
+[LaravelFormController::class, 'showForm']);
 
-Route::post('/mycontroller/{id}', [LaravelFormController::class, 'myFunction']);
+Route::post('/LaravelForm',
+[LaravelFormController::class, 'showForm']);

@@ -9,7 +9,9 @@
             <h1 class="text-center">ตารางสูตรคูณ</h1>
 
             <!-- ฟอร์มรับค่า -->
-            <form method="post" action="" class="mb-4">
+            <form method="post"
+            action= "{{url ('/LaravelForm') }}" class="mb-4">
+            @csrf
                 <div class="mb-3">
                     <label for="number" class="form-label">กรอกแม่สูตรคูณที่ต้องการ:</label>
                     <input type="number" name="number" id="number" class="form-control" required placeholder="เช่นใส่เลข 2">
