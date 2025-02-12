@@ -20,19 +20,46 @@
                                 OK
                             </div>
                             <div class="invalid-feedback" id="invalid-name">
-                                กรุณากรอกข้อมูล name
+                                กรุณากรอกชื่อ
                             </div>
                         </div>
 
                         <div class="input-group mb-3">
                             <input type="email" name="email" id="email" class="form-control" placeholder="Email" />
                             <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+                            <div class="valid-feedback">
+                                OK
+                            </div>
+                            <div class="invalid-feedback" id="invalid-email">
+                                อีเมลต้องมี @ และ .
+                            </div>
                         </div>
+
                         <div class="input-group mb-3">
+                            <input type="password" name="password" id="pass" class="form-control" placeholder="Password" />
+                            <div class="input-group-text">
+                                <span class="bi bi-eye-slash" id="togglePassword" onclick="togglePassVisibility()"></span>
+                            </div>
+                            <div class="valid-feedback">
+                                OK
+                            </div>
+                            <div class="invalid-feedback" id="invalid-pass">
+                                รหัสผ่านต้องมีตัวเลข ตัวพิมพ์เล็ก และตัวพิมพ์ใหญ่
+                            </div>
+                        </div>
+
+                       <!-- <div class="input-group mb-3">
                             <input type="password" name="password" id="pass" class="form-control"
                                 placeholder="Password" />
                             <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
-                        </div>
+                            <div class="valid-feedback">
+                                OK
+                            </div>
+                            <div class="invalid-feedback" id="invalid-pass">
+                                รหัสผ่านต้องมีตัวเลข ตัวพิมพ์เล็ก และตัวพิมพ์ใหญ่
+                            </div>
+                        </div>-->
+
                         <!--begin::Row-->
                         <div class="row">
                             <div class="col-8">
@@ -42,6 +69,9 @@
                                     <label class="form-check-label" for="flexCheckDefault">
                                         I agree to the <a href="#">terms</a>
                                     </label>
+                                    <div class="invalid-feedback" id="invalid-checkbox">
+                                        กรุณายอมรับเงื่อนไข
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.col -->
@@ -81,7 +111,7 @@
             //
             // ALERT("Hello World!")
 
-            function myfunction() {
+            /*function myfunction() {
                 let name = document.getElementById('name')
                 name = $('#name')
                 let email = document.getElementById('email')
@@ -101,10 +131,86 @@
                 }
 
                 return true;
-            }
+            }*/
+            function myfunction() {
+                let name = $('#name');
+                let email = $('#email');
+                let pass = $('#pass');
+                let mycheckbox = $('#mycheckbox');
 
-            //myfunction()
+                let isValid = true; // ตัวแปรตรวจสอบข้อมูล
+
+                // ตรวจสอบ name (ต้องไม่ว่าง)
+                if (name.val().trim() === "") {
+                    name.addClass('is-invalid').removeClass('is-valid');
+                    $('#invalid-name').html("<b><u>กรุณากรอกชื่อ</u></b>");
+                    isValid = false;
+                } else {
+                    name.removeClass('is-invalid').addClass('is-valid');
+                    $('#invalid-name').html("OK");
+                }
+
+                // ตรวจสอบ email (ต้องมี @ และ .)
+                let emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+                if (!emailPattern.test(email.val())) {
+                    email.addClass('is-invalid').removeClass('is-valid');
+                    $('#invalid-email').html("<b><u>email ต้องมี @ และ .</u></b>");
+                    isValid = false;
+                } else {
+                    email.removeClass('is-invalid').addClass('is-valid');
+                    $('#invalid-email').html("OK");
+                }
+
+                // ตรวจสอบ password (ต้องมี ตัวเลข + ตัวพิมพ์เล็ก + ตัวพิมพ์ใหญ่)
+                let passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+                if (!passPattern.test(pass.val())) {
+                    pass.addClass('is-invalid').removeClass('is-valid');
+                    $('#invalid-pass').html("<b><u>รหัสผ่านต้องมีตัวเลข ตัวพิมพ์เล็ก และตัวพิมพ์ใหญ่</u></b>");
+                    isValid = false;
+                } else {
+                    pass.removeClass('is-invalid').addClass('is-valid');
+                    $('#invalid-pass').html("OK");
+                }
+                // ตรวจสอบ checkbox (ต้องติ๊กถูก)
+                if (!mycheckbox.is(':checked')) {
+                    mycheckbox.addClass('is-invalid');
+                    $('#invalid-checkbox').show();
+                    isValid = false;
+                } else {
+                    mycheckbox.removeClass('is-invalid');
+                    $('#invalid-checkbox').hide();
+                }
+
+
+                /*// ตรวจสอบ checkbox (ต้องติ๊กถูก)
+                if (!mycheckbox.is(':checked')) {
+                    $('#invalid-checkbox').html("<b><u>กรุณายืนยันเงื่อนไข</u></b>");
+                    isValid = false;
+                } else {
+                    $('#invalid-checkbox').html("OK");
+                }*/
+
+                console.log(name.val(), email.val(), pass.val(), mycheckbox.is(':checked'));
+
+                return isValid;
+            }
+            function togglePassVisibility() { //เปิดดูรหัสได้ ถึงแม้จะกรอกถูกแล้ว
+            let passInput = document.getElementById("pass");
+            let toggleIcon = document.getElementById("togglePassword");
+
+            if (passInput.type === "password") {
+                passInput.type = "text";
+                toggleIcon.classList.remove("bi-eye-slash");
+                toggleIcon.classList.add("bi-eye");
+            } else {
+                passInput.type = "password";
+                toggleIcon.classList.remove("bi-eye");
+                toggleIcon.classList.add("bi-eye-slash");
+            }
+        }
         </script>
+
+
         <script>
             console.log(myval2)
         </script>

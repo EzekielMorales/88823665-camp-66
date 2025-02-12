@@ -32,7 +32,8 @@
                                         @csrf
                                         @method('delete')
                                         <input type="hidden" name="id" value="{{ $user->id }}">
-                                        <button type class="btn btn-danger" onclick="confirm_delete()">Delete</button>
+                                        <button type="button" class="btn btn-danger" onclick="return confirm_delete(this)">Delete</button>
+                                        <!-- <button type class="btn btn-danger" onclick="confirm_delete()">Delete</button> -->
                                     </form>
                                 </td>
                             </tr>
@@ -51,14 +52,40 @@
                     </ul>
                 </div>
             </div>
-            <button class="btn btn-primary" onclick="confirm_delete()">Click ME</button>
+            <!-- <button class="btn btn-primary" onclick="confirm_delete()">Click ME</button> -->
             <!-- /.card -->
         </div>
     </div>
 @endsection
 
 @section('scripts')
-    <script>
+<script>
+    function confirm_delete(button) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                }).then(() => {
+                    button.closest('form').submit(); // ส่งฟอร์มหลังจากกดตกลง
+                });
+            }
+        });
+
+        return false; // ป้องกันฟอร์มถูกส่งก่อนกดตกลง
+    }
+</script>
+@endsection
+    <!-- <script>
         function confirm_delete(){
             Swal.fire({
                 title: "Are you sure?",
@@ -74,5 +101,6 @@
                 }
             });
     }
-    </script>
-@endsection
+    </script> -->
+
+
