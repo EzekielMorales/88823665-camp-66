@@ -3,25 +3,25 @@
 @section('content')
     <form action="{{ url('product') }}" method="post">
         @csrf
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-6">
                 <div class="mb-3">
                     <label>Category Name</label>
-                    <input  name="category_name" type="text" class="form-control" />
+                    <input name="category_name" type="text" class="form-control" />
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary" id="btn-add-product-list" type="button"> + เพิ่ม Product</button>
+        <button class="btn btn-primary mt-3" id="btn-add-product-list" type="button"> + เพิ่ม Product</button>
         <div class="row mt-3" id='product-list'>
-<div class="col-6" >
-<label>Product Name</label>
-</div>
+            <div class="col-6">
+                <label>Product Name <button type ="button"
+                        class="btn btn-danger ml-3 mt-2 mb-2 btn-del-product-list">ลบ</button></label>
+                <input name="product_name[]" type="text" class="form-control" />
+            </div>
         </div>
-        <div class="mt-3 row">
-            <button class="btn btn-success" type="submit">บันทึก</button>
-        </div>
+        <button type="submit" class="btn btn-success mt-3 mb-3">บันทึก</button>
     </form>
-    <table class="mt-3 table">
+    <table class="table">
         <thead>
             <tr>
                 <td>#</td>
@@ -37,23 +37,21 @@
 @endsection
 
 @section('scripts')
-<script>
-    $(document).ready(function(){
-        var count =1;
-        $('#btn-add-product').on('click', function(){
-            $("#add-product").append(`
-            <div class="mt-3 col-6">
-                <label class="form-label product-label">${count++}. Product Name
-                    <button type="button" class="btn btn-danger btn-delete-product">ลบ</button>
-                </label>
-                    <input type="text" name="product_name[]" class="form-control">
+    <script>
+        $(document).ready(function() {
+            $('#btn-add-product').on('click', function() {
+                $("#add-product").append(`
+            <div class="col-6">
+                <label>Product Name <button type ="button"
+                    class="btn btn-danger ml-3 mt-2 mb-2 btn-del-product-list">ลบ</button></label>
+                <input name="product_name[]" type="text" class="form-control" />
             </div>
             `)
-        })
+            })
 
-        $(document).on('click','.btn-delete-product', function(){
-            $(this).parent().parent().remove();
-        })
-    });
-</script>
+            $(document).on('click', '.btn-delete-product', function() {
+                $(this).parent().parent().remove();
+            })
+        });
+    </script>
 @endsection
