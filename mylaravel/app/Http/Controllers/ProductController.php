@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\ProductList;
+
 
 class ProductController extends Controller
 {
     function index() {
         return view('product');
     }
+
     fuction add_product(Request $req){
         $catagory = new Category();
         $catagory->name = $req->category_name;
