@@ -10,21 +10,24 @@ use App\Models\ProductList;
 class ProductController extends Controller
 {
     function index() {
-        return view('product');
+        $category = Category::with('products')->get();
+        return view('product',compact('category'));
+        //return view('product');
     }
 
-    fuction add_product(Request $req){
-        $catagory = new Category();
-        $catagory->name = $req->category_name;
-        $catagory->save();
+    function add_product(Request $req){
+        $category = new Category();
+        $category->name = $req->category_name;
+        $category->save();
 
         foreach($req->product_name as $value){
             $product = new ProductList();
             $product->name = $value;
-            $product->category_id = $catagory->id;
+            $product->category_id = $category->id;
             $product->user_id = session('user')->id;
             $product->save();
         }
+        return redirect('/product');
     }
 
 }

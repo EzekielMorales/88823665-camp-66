@@ -5,10 +5,8 @@
         @csrf
         <div class="row mt-3">
             <div class="col-6">
-                <div class="mb-3">
                     <label>Category Name</label>
                     <input name="category_name" type="text" class="form-control" />
-                </div>
             </div>
         </div>
         <button class="btn btn-primary mt-3" id="btn-add-product-list" type="button"> + เพิ่ม Product</button>
@@ -31,7 +29,20 @@
             </tr>
         </thead>
         <tbody>
-
+            @foreach ($category as $index => $categories)
+            <tr>
+                <td>{{ $index + 1 }}.</td>
+                <td>{{ $categories->name }}</td>
+                <td>
+                    <ul>
+                        @foreach ($categories->products as $product)
+                            <li>{{ $product->name }}</li>
+                        @endforeach
+                    </ul>
+                </td>
+                <td>{{ $categories->products->first()->user->name ?? '-' }}</td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 @endsection
@@ -39,8 +50,8 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $('#btn-add-product').on('click', function() {
-                $("#add-product").append(`
+            $('#btn-add-product-list').on('click', function() {
+                $('#product-list').append(`
             <div class="col-6">
                 <label>Product Name <button type ="button"
                     class="btn btn-danger ml-3 mt-2 mb-2 btn-del-product-list">ลบ</button></label>
@@ -49,7 +60,7 @@
             `)
             })
 
-            $(document).on('click', '.btn-delete-product', function() {
+            $(document).on('click', '.btn-del-product-list', function() {
                 $(this).parent().parent().remove();
             })
         });

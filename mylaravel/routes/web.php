@@ -7,6 +7,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckLogin;
+use App\Http\Controllers\ProductController;
+
+
+Route::get('/product', [ProductController::class, 'index'])->middleware([CheckLogin::class]);
+Route::post('/product', [ProductController::class, 'add_product'])->middleware([CheckLogin::class]);
 
 Route::middleware([CheckLogin::class])->group(function () {
     Route::get('/users', [UserController::class, 'index']);
@@ -28,6 +33,7 @@ Route::get('/logout',function(){
     session()->flush();
     return redirect('/login');
 });
+
 
 Route::get('/register',
     [RegisterController::class, 'index']);

@@ -19,7 +19,7 @@ class LoginController extends Controller
             $req->session()->put('user', $user);
            return redirect('/users');
         } else {
-            $req->session()->flash('error', 'กรุณาตรวจสอบข้อมูลอีกงครั้ง!');
+            $req->session()->flash('error', 'กรุณาตรวจสอบข้อมูลอีกครั้ง!');
             return redirect('/login');
         }
 
